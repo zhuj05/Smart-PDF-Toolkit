@@ -3,7 +3,7 @@ name: Deploy Flet App to GitHub Pages
 on:
   push:
     branches:
-      - main  # 若您的預設分支是 master，請改為 master
+      - main  # 若預設分支是 master，請改為 master
 
 permissions:
   contents: read
