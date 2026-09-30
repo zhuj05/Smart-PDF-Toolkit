@@ -5,9 +5,6 @@
 
 > A lightweight, efficient, and privacy-first PDF utility toolkit designed for merging, precise splitting, page adjustments, security encryption, and dynamic watermarking.
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
-[![Flet](https://img.shields.io/badge/UI-Flet-blueviolet.svg)](https://flet.dev/)
-[![pypdf](https://img.shields.io/badge/Engine-pypdf-brightgreen.svg)](https://pypdf.readthedocs.io/)
 [![License](https://img.shields.io/badge/License-All_Rights_Reserved-red.svg)](#-license)
 
 ### 🌟 Key Features
