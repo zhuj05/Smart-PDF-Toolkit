@@ -1,7 +1,7 @@
 # Smart-PDF-Toolkit
 # 📄 Smart PDF Toolkit
 
-[繁體中文](#-繁體中文) | [English](#-english)
+[繁體中文](https://github.com/zhuj05/Smart-PDF-Toolkit/blob/main/README.md) | [English](#-english)
 
 ---
 
