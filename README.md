@@ -10,9 +10,6 @@
 
 > 一款輕量、高效且注重隱私的純前端 PDF 處理工具箱，支援多檔合併、精準拆分、頁面微調、安全加密與動態浮水印。
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
-[![Flet](https://img.shields.io/badge/UI-Flet-blueviolet.svg)](https://flet.dev/)
-[![pypdf](https://img.shields.io/badge/Engine-pypdf-brightgreen.svg)](https://pypdf.readthedocs.io/)
 [![License](https://img.shields.io/badge/License-All_Rights_Reserved-red.svg)](#-版權與授權宣告-license)
 
 ### 🌟 核心特色
