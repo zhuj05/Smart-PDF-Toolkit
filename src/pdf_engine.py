@@ -1,10 +1,6 @@
 import io
 from typing import BinaryIO, Optional
 
-from pypdf import PdfReader, PdfWriter
-from reportlab.lib.colors import Color
-from reportlab.pdfgen import canvas
-
 
 class PDFEngine:
     """PDF operations that work with browser-provided bytes and in-memory streams."""
@@ -20,7 +16,8 @@ class PDFEngine:
         return source
 
     @staticmethod
-    def _reader(source, password: Optional[str] = None) -> PdfReader:
+    def _reader(source, password: Optional[str] = None):
+        from pypdf import PdfReader
         reader = PdfReader(PDFEngine._as_stream(source))
         if reader.is_encrypted:
             if password is None or reader.decrypt(password) == 0:
@@ -28,7 +25,7 @@ class PDFEngine:
         return reader
 
     @staticmethod
-    def _save_output(writer: PdfWriter, output_dest):
+    def _save_output(writer, output_dest):
         if isinstance(output_dest, str):
             with open(output_dest, "wb") as output_file:
                 writer.write(output_file)
@@ -47,6 +44,7 @@ class PDFEngine:
 
     @staticmethod
     def merge_pdfs(file_inputs, output_dest):
+        from pypdf import PdfWriter
         writer = PdfWriter()
         for source in file_inputs:
             reader = PDFEngine._reader(source)
@@ -55,6 +53,7 @@ class PDFEngine:
 
     @staticmethod
     def split_pdf(input_source, page_ranges: list[int], output_dest):
+        from pypdf import PdfWriter
         reader = PDFEngine._reader(input_source)
         writer = PdfWriter()
         for index in page_ranges:
@@ -74,6 +73,7 @@ class PDFEngine:
     ):
         if angle not in (90, 180, 270):
             raise ValueError("旋轉角度必須是 90、180 或 270 度")
+        from pypdf import PdfWriter
         reader = PDFEngine._reader(input_source)
         writer = PdfWriter()
         for index, page in enumerate(reader.pages):
@@ -94,6 +94,7 @@ class PDFEngine:
         margins = (left, bottom, right, top)
         if any(value < 0 for value in margins):
             raise ValueError("裁切邊距不可為負數")
+        from pypdf import PdfWriter
         reader = PDFEngine._reader(input_source)
         writer = PdfWriter()
         for page in reader.pages:
@@ -106,6 +107,8 @@ class PDFEngine:
                 raise ValueError("裁切邊距過大，頁面尺寸必須大於零")
             page.mediabox.lower_left = (new_left, new_bottom)
             page.mediabox.upper_right = (new_right, new_top)
+            page.cropbox.lower_left = (new_left, new_bottom)
+            page.cropbox.upper_right = (new_right, new_top)
             page.cropbox.lower_left = (new_left, new_bottom)
             page.cropbox.upper_right = (new_right, new_top)
             writer.add_page(page)
@@ -123,6 +126,7 @@ class PDFEngine:
     def encrypt_pdf(input_source, output_dest, password: str):
         if not password:
             raise ValueError("加密密碼不可空白")
+        from pypdf import PdfWriter
         reader = PDFEngine._reader(input_source)
         writer = PdfWriter()
         writer.append(reader)
@@ -131,6 +135,7 @@ class PDFEngine:
 
     @staticmethod
     def decrypt_pdf(input_source, output_dest, password: str) -> bool:
+        from pypdf import PdfReader, PdfWriter
         reader = PdfReader(PDFEngine._as_stream(input_source))
         if reader.is_encrypted and reader.decrypt(password) == 0:
             return False
@@ -141,6 +146,7 @@ class PDFEngine:
 
     @staticmethod
     def update_metadata(input_source, output_dest, metadata: dict[str, Optional[str]]):
+        from pypdf import PdfWriter
         reader = PDFEngine._reader(input_source)
         writer = PdfWriter()
         writer.append(reader)
@@ -157,6 +163,10 @@ class PDFEngine:
     def add_watermark(input_source, output_dest, watermark_text: str = "CONFIDENTIAL"):
         if not watermark_text:
             raise ValueError("浮水印文字不可空白")
+        from pypdf import PdfReader, PdfWriter
+        from reportlab.lib.colors import Color
+        from reportlab.pdfgen import canvas
+
         reader = PDFEngine._reader(input_source)
         writer = PdfWriter()
         for page in reader.pages:
