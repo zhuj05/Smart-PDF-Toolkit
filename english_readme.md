@@ -26,6 +26,15 @@
   * View and update document metadata entries (e.g., `/Title`, `/Author`).
   * Apply custom semi-transparent diagonal text watermarks dynamically.
 
+### 📌 About This Project
+
+`Smart-PDF-Toolkit` was created to provide a lightweight, privacy-focused tool that handles PDF tasks entirely in your browser without any server uploads.
+
+Please note that this project focuses on page-level operations (such as merging, splitting, and rotating) as well as basic text extraction. **It currently does not support table recognition, layout parsing, or format conversion (e.g., extracting structured tables to Excel).**
+
+As this is maintained as a personal side project, updates and feature requests may be limited. Thank you for your understanding!
+
+
 ### 🛠️ Tech Stack
 
 * **GUI / Frontend**: [Flet](https://flet.dev/)
