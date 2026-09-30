@@ -728,7 +728,8 @@ async def main(page: ft.Page):
         file_banner,
         ft.Container(content=nav_row, margin=10),
         ft.Column(views),
-        ft.Text("Copyright © 朱家儀. All rights reserved."),
+        ft.Text("© 2026 Chia-Yi Chu. All rights reserved."),
+        ft.Text("Developer email: nou.tools.dev@gmail.com"),
     )
     ui_mounted = True
     apply_language()
