@@ -57,9 +57,15 @@
     └── pdf_engine.py    # PDF 處理無狀態運算引擎
 ```
 
-> ### 🛑 使用限制 / Usage Limits
-> 為了確保系統穩定運作，本專案設有每日使用上限：
-> - **每日額度：** 每位使用者每天可使用核心功能 **5 次**。
+## ⚠️ 限制與注意事項 / Limitations
+
+為了確保系統正常運作，本線上 UI 介面設有流量限制：
+To ensure system stability, this UI application enforces a daily usage limit:
+
+* 🇹🇼 **每日額度：** 每天可使用功能 **5 次**（隔天 00:00 重置）。
+* 🇺🇸 **Daily Limit:** You can use the functions up to **5 times** per day (resets at 00:00 GMT+8 next day).
+
+---
 
 
 
