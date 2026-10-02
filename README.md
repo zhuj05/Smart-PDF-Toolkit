@@ -56,6 +56,11 @@
     ├── installer.py     # Web/Pyodide 環境相容套件動態安裝器
     └── pdf_engine.py    # PDF 處理無狀態運算引擎
 ```
+> ### 🛑 使用限制 / Usage Limits
+> 為了確保系統穩定運作，本專案設有每日使用上限：
+> - **每日額度：** 每位使用者每天可使用核心功能 **5 次**。
+
+
 
 <h3 align=left>Support</h3>
 <a href="https://www.buymeacoffee.com/zhuj70553" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
